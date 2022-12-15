@@ -67,13 +67,14 @@ CREATE TABLE streaming_service.tracks_and_artists(
 );
 
 CREATE TABLE streaming_service.albums(
-    album_id INTEGER NOT NULL PRIMARY KEY,
-    valid_from TIMESTAMP PRIMARY KEY,
+    album_id INTEGER NOT NULL,
+    valid_from TIMESTAMP,
     valid_to TIMESTAMP,
     album_name VARCHAR(50) NOT NULL,
     album_date TIMESTAMP,
     album_cover VARCHAR(512) NOT NULL,
-    is_deluxe BOOLEAN
+    is_deluxe BOOLEAN,
+    CONSTRAINT album_version_id PRIMARY KEY (album_id, valid_from)
 );
 
 CREATE TABLE streaming_service.artists_and_albums(
@@ -110,4 +111,3 @@ CREATE TABLE streaming_service.streams(
     FOREIGN KEY (track_id) REFERENCES streaming_service.tracks (track_id) ON DELETE CASCADE,
     FOREIGN KEY (album_id) REFERENCES streaming_service.albums (album_id) ON DELETE CASCADE
 );
-
