@@ -71,7 +71,6 @@ CREATE TABLE streaming_service.albums(
     valid_from TIMESTAMP,
     valid_to TIMESTAMP,
     album_name VARCHAR(50) NOT NULL,
-    album_date TIMESTAMP,
     album_cover VARCHAR(512) NOT NULL,
     is_deluxe BOOLEAN,
     CONSTRAINT album_version_id PRIMARY KEY (album_id, valid_from)
